@@ -1,0 +1,70 @@
+* {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "yekan";
+    src: url(/fonts/Yekan.woff?18af8c75ab1951a5e56d544fb858e766) format("woff");
+}
+
+/* ----------------------------------------------------- */
+
+body {
+    font-family: 'yekan';
+    direction: rtl;
+    background-image: url(/images/img_login.png?1dc9fee221008dff8f11e8c5310f9301);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/* ----------------------------------------------------- */
+ .LoginForm {
+    /* float: left; */
+    margin-top: 10%;
+    margin-right: 25%;
+    text-align: center;
+}
+.RegisterForm
+{
+    margin-right: 40%;
+    margin-top: 1%;
+}
+.RegisterFormText
+{
+    margin-right: 30%;
+    text-align: center;
+}
+.txt_input {
+    border: 1px solid #b6b6b6;
+    outline: none;
+    border-radius: 15px;
+    font-family: 'yekan';
+    height: 30px;
+    width: 300px;
+    text-align: center;
+}
+
+.submit_input {
+    color: #FFFFFF;
+    background-color: #448fff;
+    font-family: 'yekan';
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    height: 30px;
+    width: 300px;
+    box-shadow: 0px 5px 8px #80b3ff;
+    text-align: center;
+}
+#Warning {
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 1%;
+    margin-left: 25%;
+    text-align: center;
+    color:red;
+}
