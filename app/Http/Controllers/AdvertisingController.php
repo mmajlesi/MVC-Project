@@ -8,8 +8,9 @@ use App\Models\Chat;
 use App\Models\User;
 use App\Models\Purchase;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\MessageController;
 use Carbon\Carbon;
+use Kavenegar;
+
 
 class AdvertisingController extends Controller
 {
@@ -64,6 +65,34 @@ class AdvertisingController extends Controller
             Purchase::create(['user_id' => Auth::user()->id, 'advertisement_id' => $advertisement->id, 'issue_tracking' =>  $issue_tracking]);
 
             Advertisement::where('id', $advertisement->id)->update(['status' => false]);
+            try {
+                $sender = "1000596446";        //This is the Sender number 
+
+                $message = "آگهی {$advertisement->name} شما خریداری شد.\n\nسایت کتابفروشی آنلاین";        //The body of SMS
+
+                $receptor = "09385487399";            //Receptors numbers
+
+                $result = Kavenegar::Send($sender, $receptor, $message);
+                if ($result) {
+                    foreach ($result as $r) {
+                        echo "messageid = $r->messageid";
+                        echo "message = $r->message";
+                        echo "status = $r->status";
+                        echo "statustext = $r->statustext";
+                        echo "sender = $r->sender";
+                        echo "receptor = $r->receptor";
+                        echo "date = $r->date";
+                        echo "cost = $r->cost";
+                    }
+                }
+            } catch (\Kavenegar\Exceptions\ApiException $e) {
+                // در صورتی که خروجی وب سرویس 200 نباشد این خطا رخ می دهد
+                echo $e->errorMessage();
+            } catch (\Kavenegar\Exceptions\HttpException $e) {
+                // در زمانی که مشکلی در برقرای ارتباط با وب سرویس وجود داشته باشد این خطا رخ می دهد
+                echo $e->errorMessage();
+            }
+
             return redirect('panel#cart')->with('purchaseSuccess', 'خرید شما با موفقیت انجام شد \nکد رهگیری : ' . $issue_tracking);
         } else
             return back()
