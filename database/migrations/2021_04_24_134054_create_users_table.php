@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('fullName');
             $table->bigInteger('phoneNumber');
             $table->string('email')->nullable();
-            $table->bigInteger('credit')->default(500000);
+            $table->bigInteger('credit')->default(50000);
             $table->rememberToken();
             $table->timestamps();
         });

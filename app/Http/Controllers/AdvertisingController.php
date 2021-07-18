@@ -16,7 +16,7 @@ class AdvertisingController extends Controller
 {
     public function get_advertisements()
     {
-        $advertisement = Advertisement::all();
+        $advertisement = Advertisement::where('status', true)->get();
         $advertisements = $advertisement->load(['tags']);
         return view('advertisements', ['advertisements' => $advertisements]);
     }
@@ -65,12 +65,13 @@ class AdvertisingController extends Controller
             Purchase::create(['user_id' => Auth::user()->id, 'advertisement_id' => $advertisement->id, 'issue_tracking' =>  $issue_tracking]);
 
             Advertisement::where('id', $advertisement->id)->update(['status' => false]);
+
             try {
                 $sender = "1000596446";        //This is the Sender number 
 
                 $message = "آگهی {$advertisement->name} شما خریداری شد.\n\nسایت کتابفروشی آنلاین";        //The body of SMS
 
-                $receptor = "09385487399";            //Receptors numbers
+                $receptor = "{$advertisement->user->phoneNumber}";            //Receptors numbers
 
                 $result = Kavenegar::Send($sender, $receptor, $message);
                 if ($result) {
