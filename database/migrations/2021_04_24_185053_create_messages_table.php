@@ -17,11 +17,14 @@ class CreateMessagesTable extends Migration
             $table->increments('id');
             $table->string('text');
             $table->boolean('seen')->default(false);
-            $table->unsignedInteger('from');
-            $table->foreign('from')->references('id')->on('users')->onUpdate('cascade')
+            $table->unsignedInteger('receiver');
+            $table->foreign('receiver')->references('id')->on('users')->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->unsignedInteger('to');
-            $table->foreign('to')->references('id')->on('users')->onUpdate('cascade')
+            $table->unsignedInteger('sender');
+            $table->foreign('sender')->references('id')->on('users')->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->unsignedInteger('chat_id');
+            $table->foreign('chat_id')->references('id')->on('chats')->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->timestamps();
         });

@@ -183,10 +183,10 @@ body {
 /* ----------------------------------------------------- */
 /* -------------------end IndexPage style--------------------------- */
 
-.ProductList {
+.advertisementList {
     margin-left: 5.5%;
     text-align: center;
-    float: left;
+    float: right;
 }
 
 .dl_preview {

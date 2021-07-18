@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdvertisingConroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'AdvertisingController@get_chosen_advertisements');
 Route::get('/advertisements', 'AdvertisingController@get_advertisements');
-Route::get('/advertisement_info/{id}', 'AdvertisingController@get_advertisement');
 
-Route::get('/login', 'UserController@login');
-Route::get('/register', 'UserController@register');
-
-
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/panel', 'UserController@panel');
+    Route::get('/messenger/{chat}', 'MessageController@getMessages');
+    Route::get('/advertisement_info/{id}', 'AdvertisingController@get_advertisement');
+    Route::post('/advertisement/add', 'AdvertisingController@add_advertisement');
+    Route::get('/advertisement/purchase/{advertisement}', 'AdvertisingController@purchase_advertisement');
+});
 
 Auth::routes();
-
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

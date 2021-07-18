@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+// Route::group(['middleware' => 'auth'], function () {
+    Route::post('/addMessage', 'MessageController@addMessage');
+    // Route::get('/addMessage/{messageText}/{id}', 'MessageController@addMessage');
+// });
+

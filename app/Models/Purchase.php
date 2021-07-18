@@ -20,5 +20,7 @@ class Purchase extends Model
 
     protected $fillable = [
         'issue_tracking',
+        'user_id',
+        'advertisement_id'
     ];
 }

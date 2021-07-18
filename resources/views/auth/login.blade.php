@@ -32,43 +32,6 @@
                 ایجاد حساب
             </a>
         </p>
-        <?php
-
-        // $mysqli = mysqli_connect("127.0.0.1", "root", "", "ie_project") or die("Connect Faild : $s\n" . mysqli_connect_error());
-
-        if (@isset($_POST['username']) & @isset($_POST['pwd'])) {
-            $username = @$_POST['username'];
-            $password = @$_POST['pwd'];
-
-            //     if (EI_UserTable($username, $password)) {
-            //         $record = UserInformation($username);
-            //         session_start();
-            //         $_SESSION['auth'] = TRUE;
-            //         $_SESSION['name'] = $record['Name'];
-            //         $_SESSION['username'] = $record['Username'];
-            //         $_SESSION['pwd'] = $record['Password'];
-            //         $_SESSION['Credit'] = $record['Credit'];
-            //         if (isset($record['PhoneNumber']) && !empty($record['PhoneNumber']))
-            //             $_SESSION['phone'] = $record['PhoneNumber'];
-            //         if (isset($record['Email']) && !empty($record['Email']))
-            //             $_SESSION['email'] = $record['Email'];
-            //         header("Location: index.php");
-            //     } elseif (EI_AdminTable($username, $password)) {
-            //         $record = AdminInformation($username);
-            //         session_start();
-            //         $_SESSION['auth'] = TRUE;
-            //         $_SESSION['username'] = $record['Username'];
-            //         $_SESSION['Admin_id'] = $record['id'];
-            //         header("Location: page_Management.php");
-            //     } else {
-            // 
-        ?>
-        <!--          <br> <span style="color: red;font-weight: bold;font-size: 20px;">نام کاربری یا رمز عبور را اشتباه وارد کرده‌اید.</span> -->
-        <!-- <?php
-                    //     }
-                }
-                    ?>
-
     </div>
 
     <script type="text/javascript">

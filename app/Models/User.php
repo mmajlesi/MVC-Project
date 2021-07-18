@@ -15,6 +15,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Purchase');
     }
+    public function messages()
+    {
+        return $this->hasMany('App\Models\Message','from','id');
+    }
 
 
     /**
@@ -44,7 +48,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
 }
