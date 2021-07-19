@@ -13,11 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'AdvertisingController@get_chosen_advertisements');
+Route::get('/', 'AdvertisingController@get_index_advertisements');
 Route::get('/advertisements', 'AdvertisingController@get_advertisements');
+
+Route::post('/advertisements/search', 'AdvertisingController@search_advertisement');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/panel', 'UserController@panel');
+    Route::get('/admin', 'UserController@admin');
+    Route::post('/user/delete', 'UserController@delete_user');
+    Route::post('advertisements/edit', 'AdvertisingController@edit_advertisement');
     Route::get('/messenger/{chat}', 'MessageController@getMessages');
     Route::get('/advertisement_info/{id}', 'AdvertisingController@get_advertisement');
     Route::post('/advertisement/add', 'AdvertisingController@add_advertisement');

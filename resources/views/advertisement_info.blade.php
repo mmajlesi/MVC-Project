@@ -7,7 +7,7 @@
     <!-- ----------------------------------------------------------------------------------------------- -->
     <div id="mySidenav" class="sidenav">
         <div style="background-color: coral;height: 8%;display:flex;justify-content: space-between;">
-            <p style="align-self: center;margin-right:4px;color:white">{{ $advertisement->name }}</p>
+            <p style="align-self: center;color:white;width: 100%;text-align: center">پیام رسان</p>
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         </div>
         @guest
@@ -17,11 +17,13 @@
             @if ($chats->isNotEmpty())
 
                 <div id="chatList" style="height: 100%;overflow-y: scroll;overflow-x: hidden;">
+                    <span style="margin: 15px;font-size: 18px;font-weight: bold;">لیست گفتگوها</span>
                     @foreach ($chats as $chat)
-                        <div style="margin: 5px;">
-                            <a href="#" style=" background-color: #ffffff;" onclick="openNav({{ $chat->id }}); ">
-                                <span
-                                    style="color:black;padding-right : 20px ; font-size:18px">{{ $chat->user->fullName }}</span>
+                        <div style="margin: 10px;">
+                            <a href="#" style=" background-color: #eca153bf;border-radius: 10px;"
+                                onclick="openNav({{ $chat->id }}); ">
+                                <span style="color:black;padding-right : 20px ; font-size:18px">{{ $chat->user->fullName }}
+                                </span>
                             </a>
                         </div>
                     @endforeach
@@ -57,6 +59,11 @@
                 </div>
                 <hr>
                 <div style="display: flex;justify-content: space-between;">
+                    @if ($msg = Session::get('failed'))
+                        <script type="text/javascript">
+                            alert('{{ $msg }}');
+                        </script>
+                    @endif
                     <div style="margin-top:5%;">
                         <a class="buy_button" href="/advertisement/purchase/{{ $advertisement->id }}">خرید</a>
                     </div>

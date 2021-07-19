@@ -9,14 +9,20 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="/js/JsCodes.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <!--------------------------------------------------- تصویر بالای صفحه ---------------------------------------------------------------->
     <header class="topImagePage">
-        <img src="/images/img_index.png" alt="img_index">
+        <img src="/images/FirstBanner.jpg" alt="img_index">
         <span id="DateTime"
             style=" position: absolute;top:0;margin-right: 88%;color: rgb(255, 115, 0);text-shadow: 2px 0px 5px black;"></span>
+
+        {{-- <form action="/advertisements/search" method="POST" style=" position: absolute;top:0;margin-top: 18%;margin-right:12px;">
+            <input type="text" name="searchBar" />
+            <input type="submit" /> --}}
+        </form>
     </header>
     <!------------------------------------------------------------------------------------------------------------------------------------->
     @php
@@ -26,8 +32,16 @@
     <div class="NavigationBar">
         <!-- سمت راست -->
         <a href="/">صفحه اصلی</a>
-        <a href="/advertisements">محصولات</a>
+        <a href="/advertisements">آگهی‌ها</a>
         <a href="/#about us">درباره ما</a>
+
+        <div class="search-container">
+            <form action="/advertisements/search" method="POST">
+                @csrf
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
         <!-- سمت چپ -->
         <div style="float: left;">
             @guest
@@ -100,7 +114,7 @@
                         <hr>
                         <a style="cursor: pointer;" href="/logout"
                             onclick="event.preventDefault();
-                                                                                document.getElementById('logout-form').submit();">خروج</a>
+                                                                                                document.getElementById('logout-form').submit();">خروج</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>

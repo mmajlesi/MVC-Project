@@ -21,8 +21,7 @@
             @if ($message->sender == Auth::user()->id)
                 <div style="text-align: right;">
                     <div class="isMineMessage">
-                        <p style="font-size: 14px;font-weight: bold;color: #ffffff">
-                        <p>{{ $message->text }}</p>
+                        <p style="font-size: 13px;">{{ $message->text }}</p>
                         <p style="font-size: 10px;margin-top:2px;color:#DDDDDD">
                             {{ $message->created_at->format('Y-m-d H:i') }}
                             @if ($message->seen == true)
@@ -37,9 +36,9 @@
             @else
                 <div style="text-align: left;">
                     <div class="isNotMineMessage">
-                        <p style="font-size: 14px;font-weight: bold;color:rgb(252, 138, 97)">
+                        <p style="font-size: 15px;font-weight: bold;color:rgb(252, 138, 97)">
                             {{ $message->user->fullName }}</p>
-                        <p>{{ $message->text }}</p>
+                        <p style="font-size: 13px;">{{ $message->text }}</p>
                         <p style="font-size: 10px;color:#C4C4C4">
                             {{ $message->created_at->format('Y-m-d H:i') }}
                         </p>

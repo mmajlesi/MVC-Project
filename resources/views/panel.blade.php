@@ -157,7 +157,7 @@
                                             @endif
                                         </h6>
                                         <a href="{{ $purchase->advertisement->dl_link }}" class="dl_preview">دانلود
-                                            کتاب</a>
+                                            آگهی</a>
                                     </figcaption>
                                 </figure>
                             @endForeach

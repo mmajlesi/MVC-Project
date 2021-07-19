@@ -347,7 +347,7 @@ tr:hover {
     border: none;
     box-shadow: 0.5px 0.5px 3px rgb(163, 163, 163);
     padding: 10px;
-    font-family: 'vazir';
+    font-family: "vazir";
     font-size: 16px;
     outline: none;
 }
@@ -439,4 +439,32 @@ figure figcaption {
     border-radius: 4px;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.search-container {
+    position: absolute;
+    top: 0;
+    margin-top: 18%;
+}
+
+.search-container input[type="text"] {
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    border: none;
+}
+
+.search-container button {
+    float: left;
+    padding: 6px 10px;
+    margin-top: 8px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background: #ccc;
 }
